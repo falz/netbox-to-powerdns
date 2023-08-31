@@ -1,15 +1,15 @@
 # netbox-to-powerdns
-Script to create PowerDNS DNS records from Netbox Device IPs.
+Script to create PowerDNS DNS records from Netbox Device IPs. Tested with PowerDNS 4.7.x and Netbox 3.5.x
 
-Tested with PowerDNS 4.7.x and Netbox 3.5.x
+Will add A, AAAA, PTR. Requires specifying zone sizes in config for PTR. defaults to /24 for IPv4, /48 for IPv6. Zones must exist in advance.
 
 Will use Netbox API to find devices of certain devies and create or delete DNS records in powerdns based on:
 
 * Device Role
 * Device Manufacturer
-* Device Status. Active == Add DNS, Failed / Offline / Decommissioning == Remove DNS
-
-Will add A, AAAA, PTR. Requires specifying zone sizes in config for PTR. defaults to /24 for IPv4, /48 for IPv6.
+* Device Status
+  * Active == Add DNS
+  * Failed / Offline / Decommissioning == Remove DNS
 
 
 # Config
