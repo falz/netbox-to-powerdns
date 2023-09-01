@@ -13,11 +13,11 @@ Will use Netbox API to find devices of certain devies and create or delete DNS r
 
 
 
-If there's a Netbox Cisco device named "r-ciscocpe" with an IP on interface TenGigabitEthernet0/0/3 it will create:
-* r-ciscodev-te0-0-3.ip4.example.com, A/AAAA as well as PTR.
+If there's a Netbox Cisco device named "r-ciscocpe" with an IP on interface TenGigabitEthernet0/0/3 it will create , A/AAAA/PTR:
+* `r-ciscodev-te0-0-3.ip4.example.com`
 
 A juniper device with interface et-0/0/1 would be:
-* r-junpiperdev-et-0-0-1.ip4.example.com
+* `r-junpiperdev-et-0-0-1.ip4.example.com`
 
 .. and so on. Loopbacks are special, it will NOT create forward records for these, but will create PTR. This is for 'safety' in our environment (humans create that record as "r-juniperdev.example.com")
 
