@@ -45,10 +45,10 @@ Mapping Netbox data..
 Getting Netbox Devices..
 Getting Netbox IPs..
 Checking for PowerDNS updates..
-        Adding Record: r-janesvilleinvcenter.example.com.ip4.example.com.       Content: 192.168.69.9
+        Adding Record: r-ciscodev.ip4.example.com.       Content: 192.168.69.9
         Adding Record: r-ciscodev-te0-0-3.ip4.example.com.      Content: 192.168.69.62
-        Adding Record: r-ciscodev-te0-0-4.ip4.example.com.      Content: 216.56.11.161
+        Adding Record: r-ciscodev-te0-0-4.ip4.example.com.      Content: 192.168.11.161
         Adding Record: 62.69.168.192.in-addr.arpa.      Content: r-ciscodev-te0-0-3.ip4.example.com.
-        Updating Record: 161.11.56.216.in-addr.arpa.    Content: r-ciscodev-te0-0-4.ip4.example.com.    Was: r-ciscodev-gig0-1.example.com.
+        Updating Record: 161.11.168.192.in-addr.arpa.    Content: r-ciscodev-te0-0-4.ip4.example.com.    Was: r-ciscodev-gig0-1.example.com.
 Complete! Added: 4 Updated:  1 Deleted: 0 Skipped: 2434 Total: 2439
 ```
