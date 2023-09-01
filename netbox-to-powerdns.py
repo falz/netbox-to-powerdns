@@ -2,7 +2,7 @@
 # 
 # description:
 #	fetch IP addresses from netbox devices of a specific status and role, create forward and reverse DNS entries
-#	wopat wiscnet 2020-20
+#	wopat wiscnet 2020-10
 # 
 # dependencies:
 #	yum install python3-pip
@@ -15,6 +15,14 @@
 #	doesn't add dns for secondary IP's for netbox devices. determine if we care or not
 #	add more things to 'interface_fixes_regex', currently only contains what's common
 #	if we update (change) a dns record, report its old value
+# 
+# changelog:
+#	2021-10-04	initial
+#	2021-11-08	added ability to delete
+#	2021-11-09	don't do hostname PTRs, only interfaces
+#	2022-04-29	change interface name from display to name. display can sometimes have "(label)" in it if assigned
+#	2022-05-09	bd -> bdi to match observiums port_label_short (and perhaps matches ciscos internal short name? idk)
+#	2022-05-09	obey ttl in config - was using python-powerdns's default of 3600
 
 import argparse
 import datetime
@@ -42,9 +50,9 @@ config['request_timeout']		=  10
 config['ttl']				= 14400
 config['zone_parent']			= "example.com"
 config['zone_v4_size']			= 24						# this will be the size of the in-addr.arpa zones
-config['zone_v6_size']			= 48						# this will be the siez of the ip6.arpa zones
-config['zone_sub_v4']			= "ip4"
-config['zone_sub_v6']			= "ip6"
+config['zone_v6_size']			= 48						# this will be the size of the ip6.arpa zones
+config['zone_sub_v4']			= "ip4"						# IPv4 records go in ip4.example.com
+config['zone_sub_v6']			= "ip6"						# IPv6 records go in ip6.example.com
 config['interface_fixes_regex']		= {	'^lo0.\d$'		: '',
 						'^Loopback.*'		: '',
 						'^Loopback0'		: '',
